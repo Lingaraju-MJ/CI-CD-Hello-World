@@ -1,5 +1,5 @@
 def get_greeting():
-    return "Hello, World!"
+    return "Hello, World from CI!"
 
 
 if __name__ == "__main__":
