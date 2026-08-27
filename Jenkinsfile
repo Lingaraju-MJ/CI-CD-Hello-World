@@ -45,15 +45,13 @@ pipeline {
                 '''
             }
         }
-        // no Sonar server yet — this stage only runs if SONAR_HOST_URL is set on the job
         stage('SonarQube') {
-            when {
-                expression { return env.SONAR_HOST_URL?.trim() }
-            }
             steps {
                 sh '''
+                    export PATH="/opt/sonar-scanner/bin:$PATH"
+                    export SONAR_TOKEN=$(cat /var/jenkins_home/.sonar_token)
                     sonar-scanner \
-                        -Dsonar.host.url="$SONAR_HOST_URL" \
+                        -Dsonar.host.url=http://sonarqube-hello-world:9000 \
                         -Dsonar.token="$SONAR_TOKEN"
                 '''
             }

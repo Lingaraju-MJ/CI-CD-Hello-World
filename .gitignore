@@ -11,3 +11,4 @@ coverage.xml
 reports/
 dist/
 docs/ci-cd-notes.md
+webhook-proxy.mjs
