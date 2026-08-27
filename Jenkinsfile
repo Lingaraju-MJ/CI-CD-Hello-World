@@ -49,10 +49,10 @@ pipeline {
             steps {
                 sh '''
                     export PATH="/opt/sonar-scanner/bin:$PATH"
+                    set +x
                     export SONAR_TOKEN=$(cat /var/jenkins_home/.sonar_token)
-                    sonar-scanner \
-                        -Dsonar.host.url=http://sonarqube-hello-world:9000 \
-                        -Dsonar.token="$SONAR_TOKEN"
+                    set -x
+                    sonar-scanner -Dsonar.host.url=http://sonarqube-hello-world:9000
                 '''
             }
         }
