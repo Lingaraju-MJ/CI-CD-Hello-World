@@ -13,3 +13,5 @@ python -m black --check .
 If `ruff` or `black` is not recognized, use the `python -m` form above. Windows often does not put those scripts on PATH.
 
 Jenkins reads `Jenkinsfile` from Git. Builds start on a GitHub push (webhook), not on a 5-minute poll. While we test, point the job at this feature branch instead of `main`.
+
+The job page (Status, Configure, Build Now) is not where tests and logs live. Open **Build History**, click a build number (for example `#12`). On that build you get **Console Output**. After a green run, the same page also has **Test Result** and **Build Artifacts** (the zip).
