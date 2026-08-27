@@ -12,6 +12,4 @@ python -m black --check .
 
 If `ruff` or `black` is not recognized, use the `python -m` form above. Windows often does not put those scripts on PATH.
 
-Jenkins reads `Jenkinsfile` from Git. The job is usually on `main`; point it at the feature branch while we test.
-
-Lab notes: [docs/ci-cd-notes.md](docs/ci-cd-notes.md).
+Jenkins reads `Jenkinsfile` from Git. Builds start on a GitHub push (webhook), not on a 5-minute poll. While we test, point the job at this feature branch instead of `main`.

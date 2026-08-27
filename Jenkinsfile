@@ -2,8 +2,6 @@ pipeline {
     agent any
 
     triggers {
-        // still polling. githubPush is there for later; localhost cannot take a GitHub webhook yet
-        pollSCM('H/5 * * * *')
         githubPush()
     }
 
