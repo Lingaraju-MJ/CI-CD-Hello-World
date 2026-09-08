@@ -15,3 +15,13 @@ If `ruff` or `black` is not recognized, use the `python -m` form above. Windows 
 Jenkins reads `Jenkinsfile` from Git. Builds start on a GitHub push (webhook), not on a 5-minute poll. While we test, point the job at this feature branch instead of `main`.
 
 The job page (Status, Configure, Build Now) is not where tests and logs live. Open **Build History**, click a build number (for example `#12`). On that build you get **Console Output**. After a green run, the same page also has **Test Result** and **Build Artifacts** (the zip).
+
+Local monitoring (Prometheus + Grafana):
+
+```powershell
+docker compose up -d --build
+```
+
+- App: http://localhost:8000
+- Prometheus: http://localhost:9090
+- Grafana: http://localhost:3000 (`admin` / `admin`)
