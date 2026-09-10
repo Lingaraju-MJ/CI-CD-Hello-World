@@ -7,6 +7,13 @@ web = Flask(__name__)
 hits = Counter("hello_requests_total", "Times the home page was opened")
 
 
+@web.after_request
+def add_security_headers(response):
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    return response
+
+
 @web.route("/")
 def home():
     hits.inc()

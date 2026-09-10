@@ -25,3 +25,13 @@ docker compose up -d --build
 - App: http://localhost:8000
 - Prometheus: http://localhost:9090
 - Grafana: http://localhost:3000 (`admin` / `admin`)
+
+Basic security scan (OWASP ZAP). The app must already be running. ZAP uses the Docker network, so the target is `http://app:8000`:
+
+```powershell
+docker run --rm --network ci-cd-hello-world_default -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t http://app:8000
+```
+
+Notes from the scan: `docs/zap-findings.md`
+
+How this local stack maps to AWS and Azure: `docs/aws-azure-mapping.md`
